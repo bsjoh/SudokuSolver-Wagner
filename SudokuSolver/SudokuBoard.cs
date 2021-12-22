@@ -26,7 +26,32 @@ namespace SudokuSolver {
       }
     }
 
-    public void SetNumber(int i, int j, int number, bool fixedNumber = false) {
+        public override string ToString()
+        {
+            string s_out = "\n";
+
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    s_out += board[i,j];
+                    if (j % 3 == 2)
+                    {
+                        s_out += "|";
+                    }
+                }
+                s_out += "\n";
+                if (i % 3 == 2)
+                {
+                    s_out += "---------\n";
+                }
+
+            }
+            return s_out;
+        }
+
+
+        public void SetNumber(int i, int j, int number, bool fixedNumber = false) {
       board[i, j] = number;
       fixedNumbers[i, j] = fixedNumber;
     }
